@@ -1,12 +1,13 @@
 package com.yauhenl.nooliteApi
 
 import com.yauhenl.nooliteApi.Command.*
+import khttp.get
 
 class NooliteApi(val host: String) {
     private fun doAction(channel: Byte, command: Command, brightness: Int? = null): Boolean {
         val params = hashMapOf("ch" to (channel - 1).toString(), "cmd" to command.code.toString())
         if (brightness != null) params.put("br", brightness.toString())
-        return "OK" == khttp.get("http://$host/api.htm", params = params).text
+        return "OK" == get("http://$host/api.htm", params = params).text
     }
 
     fun turnOff(channel: Byte) = doAction(channel, turnOff)
