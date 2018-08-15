@@ -1,13 +1,12 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.1.2-2'
+    id 'org.jetbrains.kotlin.jvm' version '1.2.60'
 }
 
 repositories {
-    mavenCentral()
-    maven { url "https://jitpack.io" }
+    jcenter()
 }
 
 dependencies {
-    compile 'org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.2-4'
-    compile 'com.github.jkcclemens:khttp:0.1.0'
+    compile 'org.jetbrains.kotlin:kotlin-stdlib:1.2.60'
+    compile 'khttp:khttp:0.1.0'
 }
