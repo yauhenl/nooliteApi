@@ -1,12 +1,20 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.2.60'
+    id 'org.jetbrains.kotlin.jvm' version '1.2.61'
 }
+
 
 repositories {
     jcenter()
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.yauhenl.nooliteApi.ApplicationKt'
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
 dependencies {
-    compile 'org.jetbrains.kotlin:kotlin-stdlib:1.2.60'
+    compile 'org.jetbrains.kotlin:kotlin-stdlib'
     compile 'khttp:khttp:0.1.0'
 }
